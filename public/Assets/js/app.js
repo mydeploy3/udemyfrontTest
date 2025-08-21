@@ -362,9 +362,11 @@ var MyApp = (function () {
   }
 
   function event_process_for_signaling_server() {
-    socket = io("https://udemybacktest.onrender.com",{
-        transports: ["websocket", "polling"], // force both transports
-    })
+ socket = io("https://your-backend-domain.com", {
+  transports: ["websocket"],
+  withCredentials: true
+});
+
 
     var SDP_function = function (data, to_connid) {
       socket.emit("SDPProcess", {
@@ -798,3 +800,4 @@ var MyApp = (function () {
     },
   };
 })();
+
