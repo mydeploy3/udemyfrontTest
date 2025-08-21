@@ -199,18 +199,9 @@ var AppProcess = (function () {
     }
   }
   var iceConfiguration = {
-  iceServers: [
-    { urls: "stun:stun.metered.ca:80" },
-    {
-      urls: "turn:turn.metered.ca:80",
-      username: "openrelayproject",
-      credential: "openrelayproject"
-    },
-    {
-      urls: "turn:turn.metered.ca:443",
-      username: "openrelayproject",
-      credential: "openrelayproject"
-    }
+   iceServers: [
+    { urls: "stun:stun.l.google.com:19302" },
+    { urls: "stun:stun1.l.google.com:19302" }
   ]
   };
 
@@ -805,6 +796,7 @@ var MyApp = (function () {
     },
   };
 })();
+
 
 
 
