@@ -404,22 +404,20 @@ var MyApp = (function () {
 
     // Define a function to handle the user's response
     function handleResponse(permissionGranted, data) {
-      console.log("permissionGranted:", permissionGranted);
-      console.log("data:", data);
+  console.log("permissionGranted:", permissionGranted);
+  console.log("data:", data);
 
-      // Emit the "grant_join_permission" event with the user's response and data
-      socket.emit("grant_join_permission", {
-        permissionGranted: permissionGranted,
-        data: data,
-      });
+  socket.emit("grant_join_permission", {
+    permissionGranted,
+    data,
+  });
 
-      // Hide the modal
-      $(confirmModal).modal("hide");
+  $(confirmModal).modal("hide");
 
-      // Remove the event listeners from the buttons
-      denyButton.removeEventListener("click", handleDeny);
-      allowButton.removeEventListener("click", handleAllow);
-    }
+  // Cleanup listeners
+  denyButton.removeEventListener("click", handleDeny);
+  allowButton.removeEventListener("click", handleAllow);
+}
 
     // Listen for the request_join_permission event from the server
     socket.on("request_join_permission", function (data) {
@@ -795,6 +793,7 @@ var MyApp = (function () {
     },
   };
 })();
+
 
 
 
